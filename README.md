@@ -1,0 +1,1 @@
+# Scotch MEAN starter kit
