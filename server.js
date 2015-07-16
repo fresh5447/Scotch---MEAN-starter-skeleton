@@ -12,6 +12,12 @@ var db = require('./config/db');
 // set our port
 var port = process.env.PORT || 9000;
 
+var router = express.Router();
+
+router.get('/', function(req,res){
+	res.json({message: 'hooray welcome to our api!'});
+});
+
 // connect to mongoDB
 // mongoose.connect(db.url);
 
@@ -25,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use(express.static(__dirname + '/public'));
+
+app.use('/api', router);
 
 //routes
 require('./app/routes')(app);
